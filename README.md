@@ -1,6 +1,13 @@
 
-## Instalação
+# Petshop Choice
 
+Projeto para o processo de seleção da Dti Digital. Se trata de uma solução para calcular qual petshop é mais vantajoso para o Sr. Eduardo levar os seus cachorros para tomar banho, considerando o porte de cada um, dia da semana e distância como critério de desempate.
+
+## Índice
+1. Instalação
+2. Ferramentas
+3. Premissas e Decisões
+## Instalação
 
 ### Back-End: Python & Flask
 Primeiramente certifique-se que possui [Node.js](https://nodejs.org/en) instalado em sua máquina. Utilizaremos o npm, o gerenciador de pacotes do Node.
@@ -69,4 +76,32 @@ Executar o comando abaixo dentro da pasta petshop-choice:
 npm start
 ```
 
-Em alguns segundos, a aplicação abrirá no navegador.
+Em alguns segundos, a aplicação abrirá no navegador. Caso o contrário, acesse pelo link: 
+http://localhost:3000
+
+Importante salientar que o arquivo package.json da pasta petshop-choice deve conter a seguinte instância acima de "dependencies":
+
+```
+"proxy": "https://localhost:5000",
+```
+
+Isso é essencial para o funcionamento da api. Caso algum outro erro aconteça, certifque-se que todas as ferramentas foram sido instaladas corretamente.
+
+## Frameworks e Bibliotecas
+
+ - Flask
+ - Flask CORS
+ - React
+ - Axios
+
+## Premissas e Decisões
+
+Optei por utilizar Python e o framework Flask para o desenvolvimento do back-end da minha aplicação. Essa escolha se deu devido a minha experiência com o Flask em criações de API. 
+
+Para o front-end, escolhi o React. Apesar de estar aprendendo ainda, e o uso do framework ter sido considerado opcional, decidi ainda sim optar por ele, já que é utilizado pela empresa e poder colocar meus conhecimentos em prática.
+
+Utilizei a biblioteca Axios para me auxiliar na integração do lado do servidor com o do cliente. Tive bastante dificuldade em consumir a api, afinal eu nunca havia utilizado o Axios anteriormente. Passei grande parte do tempo lendo as documentações.
+
+Infelizmente não consegui fazer testes e validações do formulário, devido ao prazo e por ter tido mais dificuldade em outras áreas do código. Optei por priorizar o funcionamento, para posteriormente poder refinar a aplicação.
+
+De modo geral, creio que consegui um bom resultado na minha aplicação, considerando o prazo de entrega. 
