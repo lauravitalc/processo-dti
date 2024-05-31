@@ -110,6 +110,8 @@ Utilizei a biblioteca Axios para me auxiliar na integração do lado do servidor
 
 Infelizmente não consegui fazer testes e validações do formulário, devido ao prazo e por ter tido mais dificuldade em outras áreas do código. Optei por priorizar o funcionamento, para posteriormente poder refinar a aplicação.
 
+Preferi fazer as organizações das pastas da forma mais simples possível, considerando que o projeto não se trata de uma aplicação robusta.
+
 De modo geral, creio que consegui um bom resultado na minha aplicação, considerando o prazo de entrega. 
 
 
