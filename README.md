@@ -104,7 +104,7 @@ Isso é essencial para o funcionamento da api. Caso algum outro erro aconteça, 
 
 Optei por utilizar Python e o framework Flask para o desenvolvimento do back-end da minha aplicação. Essa escolha se deu devido a minha experiência com o Flask em criações de API. 
 
-Para o front-end, escolhi o React. Apesar de estar aprendendo ainda, e o uso do framework ter sido considerado opcional, decidi ainda sim optar por ele, já que é utilizado pela empresa e poder colocar meus conhecimentos em prática.
+Para o front-end, escolhi o React. Mesmo em processo de aprendizagem, e o uso do framework ter sido considerado opcional, decidi ainda assim optar por ele, já que é utilizado pela empresa e sendo assim, colocando meus conhecimentos em prática.
 
 Utilizei a biblioteca Axios para me auxiliar na integração do lado do servidor com o do cliente. Tive bastante dificuldade em consumir a api, afinal eu nunca havia utilizado o Axios anteriormente. Passei grande parte do tempo lendo as documentações.
 
@@ -115,7 +115,7 @@ De modo geral, creio que consegui um bom resultado na minha aplicação, conside
 
 ## Lógica principal
 
-No aquivo `backend > main_functions.py`, concentrei as funções principais da lógica para a escolha do pet shop.
+No arquivo `backend > main_functions.py`, concentrei as funções principais da lógica para a escolha do pet shop.
 
 1. **check_weekday()** - Função chamada no `backend > app.py` que recebe a data escolhida no input. Essa função é responsavel por checar quais dias são considerados dia de semana ou final de semana. O método `weekday()` retorna um int entre 0 (segunda) a 6 (domingo).
 
@@ -146,7 +146,7 @@ def calc_canino_feliz(small_dogs, big_dogs, date_week):
     return [calc, distance_meters]
 ```
 
-3. **calculate_prices** - Função responsavel por receber os cálculos das funções anteriores. As informações são armazenadas em um dicionário, e assim são reorganizadas considerando o preço, e caso haja empate é considerado a distância dos estabelecimentos. Retorno o primeiro petshop do dicionário, após a reorganização, que será assim o petshop que vale mais a pena.
+3. **calculate_prices** - Função responsável por receber os cálculos das funções anteriores. As informações são armazenadas em um dicionário, e assim são reorganizadas considerando o preço, e caso haja empate é considerado a distância dos estabelecimentos. Retorno o primeiro petshop do dicionário, após a reorganização, que será assim o petshop que vale mais a pena.
 
 ```python
 def calculate_prices(small_dogs, big_dogs, date_week):
