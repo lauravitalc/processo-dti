@@ -1,6 +1,6 @@
 import './style.css'; 
 
-export default function Inputs({label, type, name, placeholder, value}) {
+export default function Inputs({label, type, name, placeholder, value, onChange}) {
     return (
         <div>
             <label htmlFor="{name}" className="label">{label}:</label>
@@ -10,6 +10,7 @@ export default function Inputs({label, type, name, placeholder, value}) {
                 name = {name}
                 placeholder = {placeholder}
                 value = {value}
+                onChange = {onChange}
            />
         </div>
     )
