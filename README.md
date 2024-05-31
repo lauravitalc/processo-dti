@@ -3,10 +3,16 @@
 
 Projeto para o processo de seleção da Dti Digital. Se trata de uma solução para calcular qual petshop é mais vantajoso para o Sr. Eduardo levar os seus cachorros para tomar banho, considerando o porte de cada um, dia da semana e distância como critério de desempate.
 
+<div align="center">
+<img src="https://github.com/lauravitalc/processo-dti/assets/93387750/8c841e9d-54db-4c2c-b90a-bd310e0c5d01">
+</div>
+
 ## Índice
-1. Instalação
-2. Ferramentas
-3. Premissas e Decisões
+1. [Instalação](#instalação)
+2. [Frameworks e Bibliotecas](#frameworks-e-bibliotecas)
+3. [Premissas e Decisões](#premissas-e-decisões)
+4. [Lógica principal](#lógica-principal)
+   
 ## Instalação
 
 ### Back-End: Python & Flask
@@ -105,3 +111,69 @@ Utilizei a biblioteca Axios para me auxiliar na integração do lado do servidor
 Infelizmente não consegui fazer testes e validações do formulário, devido ao prazo e por ter tido mais dificuldade em outras áreas do código. Optei por priorizar o funcionamento, para posteriormente poder refinar a aplicação.
 
 De modo geral, creio que consegui um bom resultado na minha aplicação, considerando o prazo de entrega. 
+
+
+## Lógica principal
+
+No aquivo `backend > main_functions.py`, concentrei as funções principais da lógica para a escolha do pet shop.
+
+1. **check_weekday()** - Função chamada no `backend > app.py` que recebe a data escolhida no input. Essa função é responsavel por checar quais dias são considerados dia de semana ou final de semana. O método `weekday()` retorna um int entre 0 (segunda) a 6 (domingo).
+
+```python
+def check_weekday(date):
+    date_week = date.weekday();
+    
+    if date_week in [0, 1, 2, 3, 4]: 
+        return "weekday"
+    else:
+        return "weekend"
+```
+2. **calc_** - Funções para calcular os preços dos petshops.
+
+```python
+def calc_canino_feliz(small_dogs, big_dogs, date_week):
+    distance_meters = '2000'
+
+    if date_week == 'weekday':
+        price_small = 20
+        price_big = 40
+    else:
+        price_small = round(1.2 * 20)
+        price_big = round(1.2 * 40)
+    
+    calc = (small_dogs * price_small) + (big_dogs * price_big)
+
+    return [calc, distance_meters]
+```
+
+3. **calculate_prices** - Função responsavel por receber os cálculos das funções anteriores. As informações são armazenadas em um dicionário, e assim são reorganizadas considerando o preço, e caso haja empate é considerado a distância dos estabelecimentos. Retorno o primeiro petshop do dicionário, após a reorganização, que será assim o petshop que vale mais a pena.
+
+```python
+def calculate_prices(small_dogs, big_dogs, date_week):
+    canino_feliz, distance_canino = calc_canino_feliz(small_dogs, big_dogs, date_week)
+    vai_rex, distance_rex = calc_vai_rex(small_dogs, big_dogs, date_week)
+    chowchawgas, distance_chow = calc_chowchawgas(small_dogs, big_dogs)
+
+    petshops = [
+        { 
+        "name": "Canino Feliz",
+        "price": canino_feliz,
+        "distance": distance_canino
+        },
+        {
+        "name": "Vai Rex",
+        "price": vai_rex,
+        "distance": distance_rex
+        },
+        {
+        "name": "ChowChawgas",
+        "price": chowchawgas,
+        "distance": distance_chow
+        }
+    ]
+
+    petshops.sort(key=lambda shop: (shop["price"], shop["distance"]));
+    petshop = petshops[0]
+
+    return petshop
+```
